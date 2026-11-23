@@ -1,14 +1,14 @@
 {
-  "project_id": "a7f3c1e8-9b21-4d8a-8c04-12f9b5e4d3a1",
-  "project_slug": "sistema_busca_freelances",
-  "module_name": "modulo_01_arquitetura",
-  "spent_usd": 0.14832,
+  "project_id": "00000000-0000-4000-8000-000000000001",
+  "project_slug": "demo_analytics_pipeline",
+  "module_name": "module_01_architecture",
+  "spent_usd": 0.1425,
   "retry_count": 0,
   "qa_report": {
     "approved": true,
     "blocking_issues": [],
     "warnings": [
-      "Recomenda-se versionar os contratos Pydantic em um pacote dedicado no Módulo 02."
+      "Example sanitized QA output for portfolio demonstration."
     ]
   },
   "security_report": {
@@ -17,30 +17,29 @@
   },
   "validation": {
     "delivery_status": "APPROVED",
-    "executive_summary": "A arquitetura modular do sistema de busca de oportunidades freelancer foi especificada integralmente, contemplando modelo canônico de dados, contratos de entrada/saída, estratégia de conectores compatível com as regras de acesso e plano de execução incremental.",
+    "executive_summary": "Illustrative delivery report demonstrating automated QA, AppSec, FinOps tracking, and final validation structure.",
     "acceptance_checklist": [
       {
-        "criterion": "Definir modelo único de oportunidade com suporte a campos ausentes",
+        "criterion": "Modular architecture specification completed",
         "met": true,
-        "evidence": "Schema relacional SQLite e contrato JSON definidos em docs/DATA_MODEL.md com colunas opcionais."
+        "evidence": "docs/ARCHITECTURE.md"
       },
       {
-        "criterion": "Respeitar regras de acesso sem bypass de CAPTCHA ou autenticação",
+        "criterion": "Security & compliance checks passed with zero HIGH/CRITICAL issues",
         "met": true,
-        "evidence": "Matriz de fontes em docs/ARCHITECTURE.md classifica conectores automatizáveis vs. importação manual/e-mail."
+        "evidence": "Agent 06 AppSec report"
       },
       {
-        "criterion": "Entregar MANUAL_DE_UTILIZACAO.txt em linguagem acessível",
+        "criterion": "Beginner-friendly manual generated",
         "met": true,
-        "evidence": "Arquivo MANUAL_DE_UTILIZACAO.txt incluído na raiz do pacote ZIP."
+        "evidence": "MANUAL_DE_UTILIZACAO.txt"
       }
     ],
     "known_limitations": [
-      "Módulo restrito a planejamento e arquitetura; conectores executáveis serão implementados nos módulos subsequentes."
+      "Illustrative portfolio sample output."
     ],
     "next_steps": [
-      "Copiar o conteúdo de PROJECT_STATE.json para o campo 'Estado de Módulos Anteriores' no formulário do n8n.",
-      "Executar o Módulo 02 focado na camada de persistência SQLite e schemas Pydantic."
+      "Feed PROJECT_STATE.json into Module 02 execution."
     ]
   }
 }

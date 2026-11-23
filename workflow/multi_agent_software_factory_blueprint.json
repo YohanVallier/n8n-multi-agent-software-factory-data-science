@@ -1,0 +1,1043 @@
+{
+  "name": "Multi-Agent Software Factory — Architectural Blueprint (Redacted / Non-Functional)",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodes": [
+    {
+      "id": "blueprint-node-01",
+      "name": "Form Trigger (Web Download)",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -32,
+        1232
+      ],
+      "parameters": {
+        "formTitle": "Multi-Agent Software Factory [PORTFOLIO BLUEPRINT - NON-FUNCTIONAL]",
+        "formDescription": "Redacted intake form schema for architectural showcase only.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Project ID / Slug",
+              "placeholder": "[REDACTED]"
+            },
+            {
+              "fieldLabel": "Module Name",
+              "placeholder": "[REDACTED]",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Module Specification",
+              "fieldType": "textarea",
+              "placeholder": "[REDACTED]",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Previous Module State (PROJECT_STATE.json)",
+              "fieldType": "textarea",
+              "placeholder": "[REDACTED]"
+            },
+            {
+              "fieldLabel": "Max Budget (USD)",
+              "fieldType": "number",
+              "placeholder": "[REDACTED]"
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-02",
+      "name": "Webhook Intake (API Download)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        1584
+      ],
+      "disabled": true,
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "REDACTED_WEBHOOK_PATH",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-03",
+      "name": "Prompt Base (Fixo)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        192,
+        1232
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "redacted-base-prompt",
+              "name": "prompt_base",
+              "value": "[REDACTED — Proprietary System Prompt & Engineering Standards omitted for IP protection]",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": false,
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-04",
+      "name": "Prompt do Módulo (Entrada Modular)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        1232
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "redacted-mod-1",
+              "name": "project_slug",
+              "value": "[REDACTED]",
+              "type": "string"
+            },
+            {
+              "id": "redacted-mod-2",
+              "name": "module_name",
+              "value": "[REDACTED]",
+              "type": "string"
+            },
+            {
+              "id": "redacted-mod-3",
+              "name": "prompt_modulo",
+              "value": "[REDACTED — Modular input mapping omitted]",
+              "type": "string"
+            },
+            {
+              "id": "redacted-mod-4",
+              "name": "previous_state",
+              "value": "[REDACTED]",
+              "type": "string"
+            },
+            {
+              "id": "redacted-mod-5",
+              "name": "budget_limit_usd",
+              "value": 0,
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": false,
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-05",
+      "name": "Init Project & Budget",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        1232
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Init Project & Budget\n// Responsibility: Initializes project execution context, state tracking, and USD FinOps budget cap.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-06",
+      "name": "Agent 01 - Requirements Analyst (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        864,
+        1232
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"OpenAI (gpt-4.1)\", \"agent_role\": \"Converts module specification into strict JSON functional/non-functional requirements and acceptance criteria.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-07",
+      "name": "Track Requirements & Usage",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1088,
+        1232
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Track Requirements & Usage\n// Responsibility: Parses Agent 01 JSON output and accumulates real-time prompt/completion token costs.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-08",
+      "name": "Agent 02 - Software Architect (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1312,
+        1232
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"OpenAI (gpt-4.1)\", \"agent_role\": \"Designs system stack, directory layout, data schema, contracts, and phase-ordered DAG tasks.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-09",
+      "name": "Build Execution DAG",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1536,
+        1232
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Build Execution DAG\n// Responsibility: Parses architecture blueprint, calculates cost, and sorts modular tasks into phase-ordered DAG items.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-10",
+      "name": "Loop Specialist Tasks",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        1232
+      ],
+      "parameters": {
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-11",
+      "name": "Budget Guardrail",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1984,
+        1232
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "redacted-cond-11",
+              "leftValue": "REDACTED_EXPRESSION",
+              "rightValue": "REDACTED_THRESHOLD",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-12",
+      "name": "Specialist Prompt Router",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2208,
+        1168
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Specialist Prompt Router\n// Responsibility: Dynamically injects one of 6 proprietary specialist personas and strict JSON output contracts.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-13",
+      "name": "Agent 03 - Specialist Developer (DeepSeek)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2432,
+        1168
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"DeepSeek (deepseek-chat)\", \"agent_role\": \"Executes DAG tasks using dynamically routed specialist personas and outputs modular artifacts.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-14",
+      "name": "Collect Task Code & Tokens",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2656,
+        1168
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Collect Task Code & Tokens\n// Responsibility: Collects generated task artifacts and records DeepSeek token usage.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-15",
+      "name": "Build Partial ZIP on Budget Limit",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2208,
+        1360
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Build Partial ZIP on Budget Limit\n// Responsibility: Halts execution safely on budget threshold breach and prepares partial deliverables + BUDGET_EXCEEDED_REPORT.json.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-16",
+      "name": "Consolidate Modules",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1984,
+        608
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Consolidate Modules\n// Responsibility: Merges all specialist task outputs with path-traversal protection and consolidates token logs.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-17",
+      "name": "Agent 04 - Project Assembler (DeepSeek)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2208,
+        608
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"DeepSeek (deepseek-chat)\", \"agent_role\": \"Consolidates module deliverables, validates package/import structure, and adds config files.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-18",
+      "name": "Prepare Audit Bundle",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2432,
+        608
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Prepare Audit Bundle\n// Responsibility: Applies assembler configuration/patches and packages the unified bundle for parallel auditing.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-19",
+      "name": "Agent 05 - QA & Code Reviewer (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2656,
+        544
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"OpenAI (gpt-4.1)\", \"agent_role\": \"Independently audits code quality, imports, typing, logging, exceptions, and unit tests.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-20",
+      "name": "Agent 06 - Security Auditor (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4224,
+        752
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"OpenAI (gpt-4.1)\", \"agent_role\": \"Performs AppSec audit (secrets, injections, path traversal, SSRF) and access-policy compliance checks.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-21",
+      "name": "Merge Audit Reports",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2880,
+        464
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "blueprint-node-22",
+      "name": "Evaluate Quality Gate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3104,
+        400
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Evaluate Quality Gate\n// Responsibility: Merges parallel QA & AppSec reports, computes audit costs, and blocks CRITICAL/HIGH findings.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-23",
+      "name": "Quality Gate Passed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3328,
+        400
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "redacted-cond-23",
+              "leftValue": "REDACTED_EXPRESSION",
+              "rightValue": "REDACTED_THRESHOLD",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-24",
+      "name": "Max Retries Reached?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3552,
+        496
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "redacted-cond-24",
+              "leftValue": "REDACTED_EXPRESSION",
+              "rightValue": "REDACTED_THRESHOLD",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-25",
+      "name": "Agent 07 - Debugger & Fixer (DeepSeek)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3776,
+        608
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"DeepSeek (deepseek-chat)\", \"agent_role\": \"Performs root-cause analysis on blocking audit findings and produces surgical code patches.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-26",
+      "name": "Apply Code Patches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        608
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Apply Code Patches\n// Responsibility: Applies surgical fixes from Debugger & Fixer, increments retry counter, and loops back to parallel audit.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-27",
+      "name": "Build Escalation ZIP Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3776,
+        416
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Build Escalation ZIP Files\n// Responsibility: Triggers human escalation after 3 failed self-healing cycles with ESCALATION_REPORT.json.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-28",
+      "name": "Agent 08 - Documentation Engineer (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3552,
+        224
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"OpenAI (gpt-4.1)\", \"agent_role\": \"Generates technical docs (README, ARCHITECTURE, CHANGELOG) and a non-technical user manual.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-29",
+      "name": "Agent 09 - Final Validator (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3776,
+        224
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://redacted.invalid/v1/chat/completions",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\": \"REDACTED_FOR_PORTFOLIO_ONLY\", \"provider_tier\": \"OpenAI (gpt-4.1)\", \"agent_role\": \"Validates final acceptance checklist and produces the executive delivery report.\", \"note\": \"Proprietary prompt engineering, JSON schemas, and credentials intentionally omitted.\"}",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-30",
+      "name": "Build Binary Files & Manifest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        224
+      ],
+      "parameters": {
+        "jsCode": "// [REDACTED — ARCHITECTURAL BLUEPRINT ONLY / NON-FUNCTIONAL]\n// Node: Build Binary Files & Manifest\n// Responsibility: Assembles approved artifacts, documentation, DELIVERY_REPORT.json, and PROJECT_STATE.json for ZIP compression.\n// Proprietary implementation omitted to protect intellectual property.\nthrow new Error('Non-functional portfolio blueprint: implementation redacted.');"
+      }
+    },
+    {
+      "id": "blueprint-node-31",
+      "name": "Compress Project to ZIP",
+      "type": "n8n-nodes-base.compression",
+      "typeVersion": 1.1,
+      "position": [
+        4224,
+        416
+      ],
+      "parameters": {
+        "operation": "compress",
+        "fileName": "REDACTED_OUTPUT.zip"
+      }
+    },
+    {
+      "id": "blueprint-node-32",
+      "name": "Download ZIP Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -32,
+        0
+      ],
+      "disabled": true,
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "REDACTED_PORTFOLIO_BLUEPRINT",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-33",
+      "name": "Save Backup Copy in n8n",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        4448,
+        592
+      ],
+      "parameters": {
+        "operation": "write",
+        "fileName": "/REDACTED_BACKUP_PATH/output.zip",
+        "options": {}
+      }
+    },
+    {
+      "id": "blueprint-node-34",
+      "name": "Form",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        4448,
+        400
+      ],
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Blueprint Only (Non-Functional)",
+        "completionMessage": "Proprietary binary delivery redacted for portfolio showcase.",
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "Form Trigger (Web Download)": {
+      "main": [
+        [
+          {
+            "node": "Prompt Base (Fixo)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Intake (API Download)": {
+      "main": [
+        []
+      ]
+    },
+    "Prompt Base (Fixo)": {
+      "main": [
+        [
+          {
+            "node": "Prompt do Módulo (Entrada Modular)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt do Módulo (Entrada Modular)": {
+      "main": [
+        [
+          {
+            "node": "Init Project & Budget",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Init Project & Budget": {
+      "main": [
+        [
+          {
+            "node": "Agent 01 - Requirements Analyst (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 01 - Requirements Analyst (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Track Requirements & Usage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Track Requirements & Usage": {
+      "main": [
+        [
+          {
+            "node": "Agent 02 - Software Architect (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 02 - Software Architect (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Build Execution DAG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Execution DAG": {
+      "main": [
+        [
+          {
+            "node": "Loop Specialist Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Specialist Tasks": {
+      "main": [
+        [
+          {
+            "node": "Consolidate Modules",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Budget Guardrail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget Guardrail": {
+      "main": [
+        [
+          {
+            "node": "Specialist Prompt Router",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Partial ZIP on Budget Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Specialist Prompt Router": {
+      "main": [
+        [
+          {
+            "node": "Agent 03 - Specialist Developer (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 03 - Specialist Developer (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Collect Task Code & Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect Task Code & Tokens": {
+      "main": [
+        [
+          {
+            "node": "Loop Specialist Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Partial ZIP on Budget Limit": {
+      "main": [
+        [
+          {
+            "node": "Compress Project to ZIP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consolidate Modules": {
+      "main": [
+        [
+          {
+            "node": "Agent 04 - Project Assembler (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 04 - Project Assembler (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Prepare Audit Bundle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Audit Bundle": {
+      "main": [
+        [
+          {
+            "node": "Agent 05 - QA & Code Reviewer (OpenAI)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Agent 06 - Security Auditor (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 05 - QA & Code Reviewer (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Merge Audit Reports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 06 - Security Auditor (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Merge Audit Reports",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Audit Reports": {
+      "main": [
+        [
+          {
+            "node": "Evaluate Quality Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluate Quality Gate": {
+      "main": [
+        [
+          {
+            "node": "Quality Gate Passed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quality Gate Passed?": {
+      "main": [
+        [
+          {
+            "node": "Agent 08 - Documentation Engineer (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Max Retries Reached?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max Retries Reached?": {
+      "main": [
+        [
+          {
+            "node": "Build Escalation ZIP Files",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Agent 07 - Debugger & Fixer (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 07 - Debugger & Fixer (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Apply Code Patches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apply Code Patches": {
+      "main": [
+        [
+          {
+            "node": "Agent 05 - QA & Code Reviewer (OpenAI)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Agent 06 - Security Auditor (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Escalation ZIP Files": {
+      "main": [
+        [
+          {
+            "node": "Compress Project to ZIP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 08 - Documentation Engineer (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Agent 09 - Final Validator (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 09 - Final Validator (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Build Binary Files & Manifest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Binary Files & Manifest": {
+      "main": [
+        [
+          {
+            "node": "Compress Project to ZIP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compress Project to ZIP": {
+      "main": [
+        [
+          {
+            "node": "Form",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save Backup Copy in n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Backup Copy in n8n": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "pinData": {},
+  "nodeGroups": [],
+  "tags": []
+}

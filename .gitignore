@@ -1,20 +1,15 @@
-# Environment variables & local secrets
-.env
-.env.*
-!.env.example
+# Proprietary production workflows & secrets (never commit)
+*production*.json
+*private*.json
 *credentials*.json
 *secrets*.json
+.env
+.env.*
 
 # Local n8n backups & generated ZIPs
 .n8n-files/
 *.zip
 output/
-
-# Python / Node caches
-__pycache__/
-*.py[cod]
-.pytest_cache/
-node_modules/
 
 # OS & IDE files
 .DS_Store
