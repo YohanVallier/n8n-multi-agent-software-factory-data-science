@@ -1,0 +1,23 @@
+# Environment variables & local secrets
+.env
+.env.*
+!.env.example
+*credentials*.json
+*secrets*.json
+
+# Local n8n backups & generated ZIPs
+.n8n-files/
+*.zip
+output/
+
+# Python / Node caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+
+# OS & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,70 @@
+{
+  "project_slug": "sistema_busca_freelances",
+  "last_module_completed": "modulo_01_arquitetura",
+  "project_id": "a7f3c1e8-9b21-4d8a-8c04-12f9b5e4d3a1",
+  "stack": {
+    "languages": [
+      "Python 3.11+"
+    ],
+    "data_and_storage": [
+      "SQLite",
+      "SQLAlchemy",
+      "Pandas",
+      "Pydantic"
+    ],
+    "automation_and_web": [
+      "Playwright",
+      "BeautifulSoup4",
+      "Requests",
+      "Streamlit",
+      "n8n"
+    ],
+    "ai_providers": [
+      "OpenAI API",
+      "DeepSeek API"
+    ],
+    "testing": [
+      "pytest"
+    ]
+  },
+  "directory_structure": [
+    "README.md",
+    "CHANGELOG.md",
+    "MANUAL_DE_UTILIZACAO.txt",
+    "docs/ARCHITECTURE.md",
+    "docs/DATA_MODEL.md",
+    "docs/EXECUTION_PLAN.md",
+    "src/core/models.py",
+    "src/storage/sqlite_repository.py",
+    "src/connectors/base.py",
+    "tests/"
+  ],
+  "database_schema": "CREATE TABLE IF NOT EXISTS opportunities (opportunity_id TEXT PRIMARY KEY, title TEXT, description TEXT, source TEXT, source_group TEXT, original_url TEXT, published_at TEXT, collected_at TEXT, budget TEXT, technologies TEXT, category TEXT, compatibility_score REAL, status TEXT DEFAULT 'NEW');",
+  "api_contracts": {
+    "connector_output": {
+      "opportunity_id": "string | null",
+      "title": "string | null",
+      "description": "string | null",
+      "source": "string | null",
+      "source_group": "string | null",
+      "original_url": "string | null",
+      "published_at": "ISO-8601 string | null",
+      "collected_at": "ISO-8601 string | null",
+      "budget": "string | null",
+      "technologies": "array[string] | null",
+      "category": "string | null",
+      "compatibility_score": "float (0..100) | null",
+      "status": "NEW | REVIEWED | APPLIED | IGNORED"
+    }
+  },
+  "existing_files": [
+    "README.md",
+    "CHANGELOG.md",
+    "MANUAL_DE_UTILIZACAO.txt",
+    "docs/ARCHITECTURE.md",
+    "docs/DATA_MODEL.md",
+    "docs/EXECUTION_PLAN.md",
+    "DELIVERY_REPORT.json"
+  ],
+  "executive_summary": "Arquitetura modular concluída e validada, pronta para implementação incremental a partir do Módulo 02."
+}

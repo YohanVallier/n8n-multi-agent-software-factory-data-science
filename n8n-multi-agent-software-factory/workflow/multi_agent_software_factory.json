@@ -1,0 +1,1118 @@
+{
+  "name": "Multi-Agent Software Factory (Auto ZIP Download) Data Science 01",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Fábrica de Software Multiagente (Modular - Download ZIP)",
+        "formDescription": "Envie a especificação do módulo atual. O Prompt Base fixo do projeto será aplicado automaticamente a todos os agentes. Ao finalizar, o navegador fará o download do arquivo .zip com os entregáveis e o PROJECT_STATE.json para continuidade.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "ID/Nome do Projeto",
+              "placeholder": "Ex: sistema_busca_freelances"
+            },
+            {
+              "fieldLabel": "Nome do Módulo",
+              "placeholder": "Ex: modulo_01_arquitetura",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Especificação do Módulo",
+              "fieldType": "textarea",
+              "placeholder": "Cole aqui o MÓDULO 01, MÓDULO 02, etc. (Se deixar em branco via Webhook, será usado o módulo padrão do nó).",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Estado de Módulos Anteriores (Opcional)",
+              "fieldType": "textarea",
+              "placeholder": "Deixe vazio no Módulo 01. A partir do Módulo 02, cole aqui o conteúdo do PROJECT_STATE.json gerado no módulo anterior."
+            },
+            {
+              "fieldLabel": "Orçamento Máximo (USD)",
+              "fieldType": "number",
+              "placeholder": "5.0"
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "2ffcf90c-2148-4c22-8f7c-06608acf5d2d",
+      "name": "Form Trigger (Web Download)",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -32,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "multiagent-factory-zip",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "db0572c6-4277-4005-91b7-79b2e29642a2",
+      "name": "Webhook Intake (API Download)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        1584
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "prompt-base-field",
+              "name": "prompt_base",
+              "value": "PROMPT BASE — SISTEMA INTELIGENTE DE BUSCA DE FREELANCES\n\nIDENTIDADE\nVocê é uma equipe de engenharia de software multiagente especializada em Python, Data Science, automação, desenvolvimento web, processamento de dados e inteligência artificial.\nO projeto será desenvolvido por meio de uma fábrica de software no n8n, utilizando OpenAI e DeepSeek.\n\nOBJETIVO\nDesenvolver um sistema capaz de encontrar, coletar, analisar e organizar oportunidades freelancer na área de Tecnologia da Informação.\n\nFONTES DE OPORTUNIDADES\n- 99Freelas;\n- Freelancer.com;\n- LinkedIn Jobs;\n- Grupos do LinkedIn;\n- GetNinjas;\n- Discord;\n- WhatsApp.\n\nComunidades informadas:\nDiscord:\n[INSIRA_SEU_LINK_DO_DISCORD_AQUI]\nWhatsApp 1:\n[INSIRA_SEU_LINK_DO_WHATSAPP_1_AQUI]\nWhatsApp 2:\n[INSIRA_SEU_LINK_DO_WHATSAPP_2_AQUI]\n\nTECNOLOGIAS\nDesenvolvimento:\n- Python;\n- Playwright;\n- Selenium, quando necessário;\n- BeautifulSoup;\n- Requests;\n- Pandas;\n- NumPy;\n- OpenPyXL;\n- SQL;\n- SQLite;\n- Streamlit.\n\nInteligência artificial:\n- OpenAI;\n- DeepSeek.\n\nAutomação:\n- n8n;\n- Webhooks;\n- Agendamentos;\n- Processamento de e-mails;\n- Integrações com ferramentas externas.\n\nREGRAS DE ACESSO\nNão utilizar APIs das plataformas como mecanismo de coleta.\nUtilizar Python e automação de navegador somente quando permitidos pelas plataformas.\nNão implementar:\n- Bypass de CAPTCHA;\n- Resolução automatizada de CAPTCHA;\n- Bypass de autenticação;\n- Contorno de bloqueios;\n- Automação de contas pessoais proibida pelas plataformas;\n- Scraping em desacordo com os termos de uso.\nQuando houver CAPTCHA ou autenticação adicional, pausar a execução e solicitar intervenção manual.\nPermitir importação de mensagens, arquivos TXT, links e notificações recebidas por e-mail como alternativas de coleta.\nAs APIs da OpenAI e DeepSeek são permitidas para o funcionamento dos agentes de inteligência artificial da fábrica.\n\nPERFIL PROFISSIONAL\nConsidere que o usuário trabalha com serviços relacionados a:\n- Python;\n- Automação;\n- Web scraping;\n- Desenvolvimento de sites;\n- Landing pages;\n- Excel;\n- Google Sheets;\n- n8n;\n- Integração de APIs;\n- Bots e chatbots;\n- Limpeza e tratamento de dados;\n- Análise de dados;\n- ETL;\n- Automação administrativa;\n- Desenvolvimento de aplicações web.\n\nARQUITETURA MULTIAGENTE\nUtilize os agentes já existentes no workflow:\n- Requirements Analyst: análise de requisitos;\n- Software Architect: arquitetura;\n- Specialist Developer: desenvolvimento;\n- Project Assembler: montagem;\n- QA & Code Reviewer: auditoria de qualidade;\n- Security Auditor: segurança;\n- Debugger & Fixer: correções;\n- Documentation Engineer: documentação;\n- Final Validator: validação final.\nUtilize o Execution DAG para controlar dependências e execução das tarefas.\n\nPADRÃO DE DESENVOLVIMENTO\nCada módulo deverá:\n1. Possuir objetivo claramente definido.\n2. Ter entradas e saídas estruturadas.\n3. Ter critérios de aceitação.\n4. Reutilizar componentes existentes.\n5. Ter testes automatizados.\n6. Registrar erros em logs.\n7. Ser compatível com os módulos anteriores.\n8. Possuir documentação técnica.\n9. Evitar duplicação de código.\n10. Ser independente sempre que possível.\nNão recrie arquivos existentes sem necessidade.\nNão substitua funcionalidades já aprovadas.\nNão avance automaticamente para módulos posteriores.\n\nFORMATO DAS TAREFAS\nO Software Architect deverá dividir os requisitos em tarefas menores e independentes.\nCada tarefa deverá conter:\n- task_id;\n- module;\n- objective;\n- specialist;\n- dependencies;\n- technologies;\n- input_schema;\n- output_schema;\n- deliverables;\n- acceptance_criteria.\nO Specialist Developer deverá receber tarefas específicas, desenvolver os arquivos e devolver os resultados para o Project Assembler.\n\nRESULTADO FINAL\nEntregar um sistema funcional, documentado, testado e acompanhado de um arquivo ZIP e de um MANUAL_DE_UTILIZACAO.txt escrito para uma pessoa extremamente leiga.\nAguardar a próxima especificação de módulo.",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a894bc7c-71a1-4961-8a72-73f44f2637a8",
+      "name": "Prompt Base (Fixo)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        192,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "module-project-slug",
+              "name": "project_slug",
+              "value": "={{ ($json.body?.project_slug || $json['ID/Nome do Projeto'] || 'sistema_busca_freelances').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "module-name-field",
+              "name": "module_name",
+              "value": "={{ ($json.body?.module_name || $json['Nome do Módulo'] || 'modulo_01_arquitetura').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "module-prompt-default",
+              "name": "prompt_modulo_padrao",
+              "value": "MÓDULO 01 — ARQUITETURA E PLANEJAMENTO\nAtue como Software Architect.\nPlaneje o sistema de busca de oportunidades freelancer.\nDefina:\n1. Arquitetura geral.\n2. Estrutura de diretórios.\n3. Banco de dados.\n4. Comunicação entre módulos.\n5. Contratos de entrada e saída.\n6. Estratégia de coleta de cada plataforma.\n7. Estratégia de automação com Python.\n8. Estratégia de integração com n8n.\n9. Processamento de dados.\n10. Inteligência artificial.\nCrie uma arquitetura extensível que permita adicionar novas fontes sem modificar o sistema inteiro.\nDefina um modelo único de oportunidade contendo:\n- opportunity_id;\n- title;\n- description;\n- source;\n- source_group;\n- original_url;\n- published_at;\n- collected_at;\n- budget;\n- technologies;\n- category;\n- compatibility_score;\n- status.\nOs campos deverão aceitar valores ausentes.\nDefina como cada conector entregará informações ao motor central.\nIdentifique quais fontes permitem automação de navegador e quais precisarão de importação manual ou notificações.\nEntregáveis:\n- ARCHITECTURE.md;\n- Diagrama de arquitetura;\n- Estrutura de diretórios;\n- Modelo de dados;\n- Plano de execução;\n- Dependências entre módulos.\nNão desenvolva funcionalidades ainda.",
+              "type": "string"
+            },
+            {
+              "id": "module-prompt-input",
+              "name": "prompt_modulo",
+              "value": "={{ ($json.body?.module_prompt || $json.body?.prompt || $json.body?.chatInput || $json.body?.message || $json['Especificação do Módulo'] || '').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "module-prev-state",
+              "name": "previous_state",
+              "value": "={{ ($json.body?.previous_state || $json['Estado de Módulos Anteriores (Opcional)'] || '').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "module-budget-field",
+              "name": "budget_limit_usd",
+              "value": "={{ Number($json.body?.budget_limit_usd || $json['Orçamento Máximo (USD)'] || 5) }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "efd8dafb-1e0b-43df-8465-be20c1c57cd1",
+      "name": "Prompt do Módulo (Entrada Modular)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const baseNode = $('Prompt Base (Fixo)').first().json;\nconst modNode = $('Prompt do Módulo (Entrada Modular)').first().json;\n\nconst basePrompt = String(baseNode.prompt_base || '').trim();\nif (!basePrompt) {\n  throw new Error('Prompt Base vazio. Preencha o campo \"prompt_base\" no nó \"Prompt Base (Fixo)\".');\n}\n\nconst modulePrompt = String(modNode.prompt_modulo || modNode.prompt_modulo_padrao || '').trim();\nif (!modulePrompt) {\n  throw new Error('Especificação do módulo vazia. Preencha o formulário, envie \"module_prompt\" no Webhook ou configure \"prompt_modulo_padrao\".');\n}\n\nconst projectSlug = String(modNode.project_slug || 'sistema_busca_freelances')\n  .trim()\n  .toLowerCase()\n  .replace(/[^a-z0-9_-]/g, '_');\n\nconst moduleName = String(modNode.module_name || 'modulo_01')\n  .trim()\n  .toLowerCase()\n  .replace(/[^a-z0-9_-]/g, '_');\n\nconst previousState = String(modNode.previous_state || '').trim();\n\nconst projectId = (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function')\n  ? crypto.randomUUID()\n  : `proj-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;\n\nconst rawBudget = Number(modNode.budget_limit_usd);\nconst budgetLimitUsd = (!Number.isNaN(rawBudget) && rawBudget > 0) ? rawBudget : 5.0;\n\nconst rawPrompt = `${basePrompt}\\n\\n========================================\\nMÓDULO ATUAL (${moduleName})\\n========================================\\n${modulePrompt}${previousState ? `\\n\\n========================================\\nESTADO DE MÓDULOS ANTERIORES\\n========================================\\n${previousState}` : ''}`;\n\nreturn [{\n  json: {\n    project_id: projectId,\n    project_slug: projectSlug,\n    module_name: moduleName,\n    base_prompt: basePrompt,\n    module_prompt: modulePrompt,\n    previous_state: previousState,\n    raw_prompt: rawPrompt,\n    budget_limit_usd: budgetLimitUsd,\n    spent_usd: 0,\n    retry_count: 0,\n    max_retries: 3,\n    usage_log: []\n  }\n}];"
+      },
+      "id": "fc4dd0b2-be52-4489-8f88-81750345097e",
+      "name": "Init Project & Budget",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'gpt-4.1', temperature: 0.1, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.base_prompt + '\\n\\n=== PAPEL ATUAL: REQUIREMENTS ANALYST SÊNIOR ===\\nConverta a especificação do MÓDULO ATUAL em uma especificação técnica em JSON estrito, respeitando rigorosamente o Prompt Base, as regras de acesso e o escopo do módulo (não avance para módulos futuros nem recrie arquivos já aprovados). Retorne JSON estrito com as chaves: \"project_name\" (string slug em snake_case sem espaços ou acentos), \"module_name\" (string slug em snake_case), \"module_type\" (\"PLANNING_DOCS\" | \"IMPLEMENTATION\" | \"HYBRID\"), \"complexity\" (\"SIMPLE\" | \"MODERATE\" | \"ENTERPRISE\"), \"domains\" (array contendo valores de: \"data_science\", \"data_engineering\", \"machine_learning\", \"automation\", \"web_scraping\", \"backend_frontend\"), \"functional_requirements\" (array de objetos {id, description, priority}), \"non_functional_requirements\" (array de strings), \"acceptance_criteria\" (array de strings testáveis), \"security_requirements\" (array de strings).' }, { role: 'user', content: 'Projeto: ' + $json.project_slug + '\\nMódulo Atual: ' + $json.module_name + '\\n\\n=== ESPECIFICAÇÃO DO MÓDULO ===\\n' + $json.module_prompt + ($json.previous_state ? '\\n\\n=== ESTADO DE MÓDULOS ANTERIORES ===\\n' + $json.previous_state : '') } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "e64aba9f-2ced-4274-819d-3ab43275f9a6",
+      "name": "Agent 01 - Requirements Analyst (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        864,
+        1232
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Init Project & Budget').first().json;\nconst resp = $input.first().json;\nconst requirements = JSON.parse(resp.choices[0].message.content);\n\nconst pTokens = resp.usage?.prompt_tokens || 0;\nconst cTokens = resp.usage?.completion_tokens || 0;\nconst cost = Number((((pTokens / 1000000) * 2.0) + ((cTokens / 1000000) * 8.0)).toFixed(6));\n\nreturn [{\n  json: {\n    ...ctx,\n    spent_usd: Number((ctx.spent_usd + cost).toFixed(6)),\n    requirements,\n    usage_log: [\n      ...ctx.usage_log,\n      { agent: 'requirements_analyst', model: 'gpt-4.1', prompt_tokens: pTokens, completion_tokens: cTokens, cost_usd: cost }\n    ]\n  }\n}];"
+      },
+      "id": "5f1814e8-051a-459d-97be-b77c329789a9",
+      "name": "Track Requirements & Usage",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1088,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'gpt-4.1', temperature: 0.1, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.base_prompt + '\\n\\n=== PAPEL ATUAL: SOFTWARE ARCHITECT SÊNIOR ===\\nProjete a arquitetura e divida EXCLUSIVAMENTE o MÓDULO ATUAL em tarefas modulares ordenadas por fase (DAG). Se o módulo indicar \"Não desenvolva funcionalidades ainda\" ou for do tipo PLANNING_DOCS, crie tarefas focadas apenas nos entregáveis de planejamento/documentação (ex.: ARCHITECTURE.md, diagramas Mermaid, estrutura de diretórios, modelo de dados, plano de execução e dependências) sem gerar código de funcionalidades futuras. Retorne JSON estrito com: \"stack\" (objeto com linguagens e bibliotecas essenciais), \"directory_structure\" (array de caminhos relativos), \"database_schema\" (DDL SQL ou definição do modelo de dados), \"api_contracts\" (schemas Pydantic/JSON e contratos entre módulos), \"tasks\" (array de tarefas onde cada item tem: \"task_id\" ex: \"TASK-01\", \"module\" string, \"objective\" string, \"agent_id\" exatamente um de [\"data_scientist\", \"data_engineer\", \"ml_engineer\", \"automation_engineer\", \"scraping_engineer\", \"backend_frontend_engineer\"], \"specialist\" string, \"phase\" inteiro >= 1, \"description\" string técnica completa, \"dependencies\" array de task_ids, \"technologies\" array de strings, \"input_schema\" objeto, \"output_schema\" objeto, \"target_files\" array de caminhos relativos, \"deliverables\" array de strings, \"acceptance_criteria\" array de strings). Crie apenas tarefas necessárias para o módulo atual.' }, { role: 'user', content: 'Módulo Atual: ' + $json.module_name + '\\n\\nEspecificação do Módulo:\\n' + $json.module_prompt + ($json.previous_state ? '\\n\\nEstado de Módulos Anteriores:\\n' + $json.previous_state : '') + '\\n\\nRequisitos:\\n' + JSON.stringify($json.requirements) } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "feff75d4-44ac-4a30-8168-539fa2e4a52c",
+      "name": "Agent 02 - Software Architect (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1312,
+        1232
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Track Requirements & Usage').first().json;\nconst resp = $input.first().json;\nconst architecture = JSON.parse(resp.choices[0].message.content);\n\nconst pTokens = resp.usage?.prompt_tokens || 0;\nconst cTokens = resp.usage?.completion_tokens || 0;\nconst cost = Number((((pTokens / 1000000) * 2.0) + ((cTokens / 1000000) * 8.0)).toFixed(6));\n\nconst tasks = (architecture.tasks || []).sort((a, b) => (a.phase || 1) - (b.phase || 1));\nif (tasks.length === 0) {\n  throw new Error('O Software Architect não retornou nenhuma tarefa executável.');\n}\n\nconst updatedSpent = Number((ctx.spent_usd + cost).toFixed(6));\nconst updatedUsage = [\n  ...ctx.usage_log,\n  { agent: 'software_architect', model: 'gpt-4.1', prompt_tokens: pTokens, completion_tokens: cTokens, cost_usd: cost }\n];\n\nreturn tasks.map((task, idx) => ({\n  json: {\n    project_id: ctx.project_id,\n    project_slug: ctx.project_slug,\n    module_name: ctx.module_name,\n    base_prompt: ctx.base_prompt,\n    module_prompt: ctx.module_prompt,\n    previous_state: ctx.previous_state,\n    raw_prompt: ctx.raw_prompt,\n    budget_limit_usd: ctx.budget_limit_usd,\n    spent_usd: updatedSpent,\n    retry_count: ctx.retry_count,\n    max_retries: ctx.max_retries,\n    requirements: ctx.requirements,\n    architecture,\n    usage_log: updatedUsage,\n    task_index: idx,\n    total_tasks: tasks.length,\n    task\n  }\n}));"
+      },
+      "id": "4aaf302f-5464-4e0a-a8d8-ca73f34172fe",
+      "name": "Build Execution DAG",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1536,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "8403304d-6bba-410d-bfdb-a8384fae4d94",
+      "name": "Loop Specialist Tasks",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "budget-guard-cond",
+              "leftValue": "={{ Number($json.spent_usd) }}",
+              "rightValue": "={{ Number($json.budget_limit_usd) }}",
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1f3de3a0-44c3-407b-938f-66572bfadd75",
+      "name": "Budget Guardrail",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1984,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst task = item.task;\n\nconst personas = {\n  data_scientist: 'Você é um Data Scientist Sênior especialista em Python, Pandas, Polars, NumPy, SciPy, EDA estatística, limpeza de dados e visualizações reproduzíveis.',\n  data_engineer: 'Você é um Data Engineer Sênior especialista em ETL/ELT idempotente, SQLite, SQLAlchemy, validação de schemas com Pydantic e processamento incremental.',\n  ml_engineer: 'Você é um Machine Learning Engineer Sênior especialista em Scikit-learn, classificação de compatibilidade, NLP e pontuação de oportunidades.',\n  automation_engineer: 'Você é um Automation Engineer Sênior especialista em Python, n8n, webhooks, agendamentos, processamento de e-mails, logs estruturados e manipulação segura de arquivos.',\n  scraping_engineer: 'Você é um Web Scraping Engineer Sênior especialista em Playwright, Selenium, BeautifulSoup e Requests. Siga rigorosamente as REGRAS DE ACESSO do Prompt Base (zero bypass de CAPTCHA/autenticação, pausa para intervenção manual e suporte a importação manual).',\n  backend_frontend_engineer: 'Você é um Full-Stack Engineer Sênior especialista em Python, Streamlit, FastAPI, arquitetura modular e documentação técnica.'\n};\n\nconst moduleType = item.requirements?.module_type || 'IMPLEMENTATION';\n\nconst systemPrompt = `${item.base_prompt}\n\n=== PAPEL ATUAL: SPECIALIST DEVELOPER (${task.agent_id}) ===\n${personas[task.agent_id] || personas.backend_frontend_engineer}\n\nREGRAS OBRIGATÓRIAS:\n1. Respeite estritamente o escopo do MÓDULO ATUAL (tipo: ${moduleType}). Se o módulo proibir o desenvolvimento de funcionalidades ainda, produza APENAS os entregáveis de arquitetura, diagramas, esquemas e documentação solicitados.\n2. Para tarefas de código: escreva código limpo, modular, com type hints completos, docstrings, logging estruturado, tratamento de exceções e testes unitários em pytest com mocks para chamadas externas.\n3. Nunca insira senhas, tokens ou chaves hardcoded (use variáveis de ambiente).\n4. Não recrie nem sobrescreva arquivos já aprovados em módulos anteriores sem necessidade.\n5. Retorne EXCLUSIVAMENTE um JSON válido: { \"task_id\": \"${task.task_id}\", \"summary\": \"resumo técnico\", \"files\": [ { \"path\": \"caminho/relativo\", \"content\": \"conteúdo completo\" } ] }.`;\n\nconst userPrompt = `Projeto: ${item.project_slug} (ID: ${item.project_id})\nMódulo Atual: ${item.module_name}\nTarefa: ${task.task_id} (${task.agent_id})\nObjetivo: ${task.objective || task.description}\nDescrição Técnica: ${task.description}\nTecnologias: ${JSON.stringify(task.technologies || [])}\nInput Schema: ${JSON.stringify(task.input_schema || {})}\nOutput Schema: ${JSON.stringify(task.output_schema || {})}\nArquivos esperados: ${JSON.stringify(task.target_files || task.deliverables || [])}\nCritérios de aceitação: ${JSON.stringify(task.acceptance_criteria || [])}\n\nEspecificação Completa do Módulo:\n${item.module_prompt}${item.previous_state ? `\n\nEstado de Módulos Anteriores:\n${item.previous_state}` : ''}\n\nArquitetura e Contratos:\n${JSON.stringify({\n  stack: item.architecture.stack,\n  directory_structure: item.architecture.directory_structure,\n  database_schema: item.architecture.database_schema,\n  api_contracts: item.architecture.api_contracts\n})}`;\n\nreturn [{\n  json: {\n    ...item,\n    system_prompt: systemPrompt,\n    user_prompt: userPrompt\n  }\n}];"
+      },
+      "id": "f05a6cb7-bdc2-4dbe-897f-691b7d80e00a",
+      "name": "Specialist Prompt Router",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2208,
+        1168
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.deepseek.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "deepSeekApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'deepseek-chat', temperature: 0.1, max_tokens: 8192, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.system_prompt }, { role: 'user', content: $json.user_prompt } ] }) }}",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "id": "7ea2cd3b-8b2c-4b26-a4db-a4738f7ab1fb",
+      "name": "Agent 03 - Specialist Developer (DeepSeek)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2432,
+        1168
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 4000
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Specialist Prompt Router').first().json;\nconst resp = $input.first().json;\nconst parsed = JSON.parse(resp.choices[0].message.content);\n\nconst pTokens = resp.usage?.prompt_tokens || 0;\nconst cTokens = resp.usage?.completion_tokens || 0;\nconst cost = Number((((pTokens / 1000000) * 0.27) + ((cTokens / 1000000) * 1.10)).toFixed(6));\n\nreturn [{\n  json: {\n    project_id: ctx.project_id,\n    task_id: ctx.task.task_id,\n    agent_id: ctx.task.agent_id,\n    summary: parsed.summary || 'Módulo implementado',\n    files: parsed.files || [],\n    usage: {\n      agent: ctx.task.agent_id,\n      task_id: ctx.task.task_id,\n      model: 'deepseek-chat',\n      prompt_tokens: pTokens,\n      completion_tokens: cTokens,\n      cost_usd: cost\n    }\n  }\n}];"
+      },
+      "id": "f4c504d3-0b24-4147-bd6a-e4ab965a24fa",
+      "name": "Collect Task Code & Tokens",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2656,
+        1168
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nlet taskOutputs = [];\ntry {\n  taskOutputs = $('Collect Task Code & Tokens').all();\n} catch (e) {}\n\nconst filesMap = {};\nfor (const out of taskOutputs) {\n  for (const f of (out.json.files || [])) {\n    if (f.path && typeof f.content === 'string') {\n      const cleanPath = f.path.replace(/^(\\.\\.(\\/|\\\\|$))+/, '').replace(/^\\/+/, '');\n      filesMap[cleanPath] = f.content;\n    }\n  }\n}\n\nfilesMap['BUDGET_EXCEEDED_REPORT.json'] = JSON.stringify({\n  project_id: item.project_id,\n  project_slug: item.project_slug,\n  module_name: item.module_name,\n  status: 'BUDGET_EXCEEDED',\n  spent_usd: item.spent_usd,\n  budget_limit_usd: item.budget_limit_usd,\n  message: 'Execução interrompida pelo guardrail financeiro. Os entregáveis concluídos até este ponto foram incluídos neste arquivo ZIP.'\n}, null, 2);\n\nconst projectSlug = (item.project_slug || item.requirements?.project_name || 'projeto_parcial').replace(/[^a-zA-Z0-9_-]/g, '_');\nconst moduleSlug = (item.module_name || 'modulo').replace(/[^a-zA-Z0-9_-]/g, '_');\nconst zipFilename = `${projectSlug}_${moduleSlug}_${item.project_id.slice(0, 8)}_parcial.zip`;\nconst filePaths = Object.keys(filesMap);\n\nreturn filePaths.map((relPath) => ({\n  json: {\n    project_id: item.project_id,\n    zip_filename: zipFilename,\n    file_path: relPath\n  },\n  binary: {\n    data: {\n      data: Buffer.from(filesMap[relPath], 'utf8').toString('base64'),\n      mimeType: 'text/plain',\n      fileName: relPath\n    }\n  }\n}));"
+      },
+      "id": "d8c1f4a3-7b4c-4f9f-8a49-839ca5689400",
+      "name": "Build Partial ZIP on Budget Limit",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2208,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const dagItems = $('Build Execution DAG').all();\nconst base = dagItems[0].json;\nconst taskOutputs = $('Collect Task Code & Tokens').all();\n\nconst filesMap = {};\nconst usageLog = [...base.usage_log];\nlet totalSpent = Number(base.spent_usd);\n\nfor (const out of taskOutputs) {\n  const d = out.json;\n  for (const f of (d.files || [])) {\n    if (f.path && typeof f.content === 'string') {\n      const cleanPath = f.path.replace(/^(\\.\\.(\\/|\\\\|$))+/, '').replace(/^\\/+/, '');\n      filesMap[cleanPath] = f.content;\n    }\n  }\n  if (d.usage) {\n    usageLog.push(d.usage);\n    totalSpent = Number((totalSpent + Number(d.usage.cost_usd || 0)).toFixed(6));\n  }\n}\n\nconst generatedFiles = Object.entries(filesMap).map(([path, content]) => ({ path, content }));\n\nreturn [{\n  json: {\n    project_id: base.project_id,\n    project_slug: base.project_slug,\n    module_name: base.module_name,\n    base_prompt: base.base_prompt,\n    module_prompt: base.module_prompt,\n    previous_state: base.previous_state,\n    raw_prompt: base.raw_prompt,\n    budget_limit_usd: base.budget_limit_usd,\n    spent_usd: totalSpent,\n    retry_count: 0,\n    max_retries: base.max_retries,\n    requirements: base.requirements,\n    architecture: base.architecture,\n    usage_log: usageLog,\n    files_map: filesMap,\n    generated_files: generatedFiles\n  }\n}];"
+      },
+      "id": "7974b083-5e71-4761-ae3d-15bd92707a4e",
+      "name": "Consolidate Modules",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1984,
+        608
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.deepseek.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "deepSeekApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'deepseek-chat', temperature: 0.1, max_tokens: 8192, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.base_prompt + '\\n\\n=== PAPEL ATUAL: PROJECT ASSEMBLER SÊNIOR ===\\nRevise os entregáveis gerados para o módulo atual (' + $json.module_name + ', tipo: ' + ($json.requirements?.module_type || 'IMPLEMENTATION') + '). Se houver código Python, garanta __init__.py nos pacotes, consistência de imports e gere arquivos de configuração necessários (pyproject.toml, requirements.txt, .env.example, .gitignore). Se o módulo for apenas de arquitetura/planejamento (PLANNING_DOCS), NÃO crie código de funcionalidades futuras nem arquivos desnecessários — apenas valide coerência documental e organização de caminhos. Retorne JSON estrito: { \"assembly_notes\": \"string\", \"config_files\": [ { \"path\": \"...\", \"content\": \"...\" } ], \"patched_modules\": [ { \"path\": \"...\", \"content\": \"...\" } ] }.' }, { role: 'user', content: 'Módulo: ' + $json.module_name + '\\n\\nEspecificação do Módulo:\\n' + $json.module_prompt + ($json.previous_state ? '\\n\\nEstado Anterior:\\n' + $json.previous_state : '') + '\\n\\nArquitetura: ' + JSON.stringify($json.architecture) + '\\n\\nEntregáveis gerados: ' + JSON.stringify($json.generated_files) } ] }) }}",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "id": "4be107a5-10b6-42dd-890a-9818ee0dd241",
+      "name": "Agent 04 - Project Assembler (DeepSeek)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2208,
+        608
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "const prev = $('Consolidate Modules').first().json;\nconst asmResp = $input.first().json;\nconst asm = JSON.parse(asmResp.choices[0].message.content);\n\nconst pTokens = asmResp.usage?.prompt_tokens || 0;\nconst cTokens = asmResp.usage?.completion_tokens || 0;\nconst cost = Number((((pTokens / 1000000) * 0.27) + ((cTokens / 1000000) * 1.10)).toFixed(6));\n\nconst filesMap = { ...prev.files_map };\nfor (const f of (asm.patched_modules || [])) {\n  if (f.path && typeof f.content === 'string') {\n    const cleanPath = f.path.replace(/^(\\.\\.(\\/|\\\\|$))+/, '').replace(/^\\/+/, '');\n    filesMap[cleanPath] = f.content;\n  }\n}\nfor (const f of (asm.config_files || [])) {\n  if (f.path && typeof f.content === 'string') {\n    const cleanPath = f.path.replace(/^(\\.\\.(\\/|\\\\|$))+/, '').replace(/^\\/+/, '');\n    filesMap[cleanPath] = f.content;\n  }\n}\n\nconst codeBundle = Object.entries(filesMap).map(([path, content]) => ({ path, content }));\n\nreturn [{\n  json: {\n    project_id: prev.project_id,\n    project_slug: prev.project_slug,\n    module_name: prev.module_name,\n    base_prompt: prev.base_prompt,\n    module_prompt: prev.module_prompt,\n    previous_state: prev.previous_state,\n    raw_prompt: prev.raw_prompt,\n    budget_limit_usd: prev.budget_limit_usd,\n    spent_usd: Number((prev.spent_usd + cost).toFixed(6)),\n    retry_count: 0,\n    max_retries: prev.max_retries,\n    requirements: prev.requirements,\n    architecture: prev.architecture,\n    usage_log: [\n      ...prev.usage_log,\n      { agent: 'project_assembler', model: 'deepseek-chat', prompt_tokens: pTokens, completion_tokens: cTokens, cost_usd: cost }\n    ],\n    files_map: filesMap,\n    code_bundle: codeBundle\n  }\n}];"
+      },
+      "id": "e69c648f-808e-49cf-9d19-977e4f9acd69",
+      "name": "Prepare Audit Bundle",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2432,
+        608
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'gpt-4.1', temperature: 0.1, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.base_prompt + '\\n\\n=== PAPEL ATUAL: QA & CODE REVIEWER INDEPENDENTE ===\\nAudite os entregáveis do módulo atual considerando seu tipo (' + ($json.requirements?.module_type || 'IMPLEMENTATION') + '). Se for módulo de código, verifique sintaxe, imports, aderência à arquitetura, type hints, logs, tratamento de exceções e qualidade dos testes unitários pytest. Se for módulo de planejamento/documentação (PLANNING_DOCS), audite completude dos entregáveis pedidos, consistência dos contratos e aderência ao Prompt Base (não reprove por ausência de código/testes quando o módulo proibir desenvolver funcionalidades). Retorne JSON estrito: { \"approved\": boolean, \"blocking_issues\": [ { \"file\": \"string\", \"severity\": \"CRITICAL\" | \"HIGH\", \"description\": \"string\" } ], \"warnings\": [\"string\"] }.' }, { role: 'user', content: JSON.stringify({ module_name: $json.module_name, module_prompt: $json.module_prompt, requirements: $json.requirements, code_bundle: $json.code_bundle }) } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "cd88db18-e768-4403-87a2-2f990c4c9627",
+      "name": "Agent 05 - QA & Code Reviewer (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2656,
+        544
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'gpt-4.1', temperature: 0.1, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.base_prompt + '\\n\\n=== PAPEL ATUAL: SECURITY AUDITOR (APPSEC) ===\\nAudite os entregáveis procurando credenciais hardcoded, SQL injection, command injection, path traversal, desserialização insegura, SSRF, falhas de validação e violações às REGRAS DE ACESSO do Prompt Base (bypass de CAPTCHA, bypass de autenticação, contorno de bloqueios ou scraping proibido). Retorne JSON estrito: { \"secure\": boolean, \"vulnerabilities\": [ { \"file\": \"string\", \"severity\": \"CRITICAL\" | \"HIGH\" | \"MEDIUM\", \"cwe\": \"string\", \"remediation\": \"string\" } ] }.' }, { role: 'user', content: JSON.stringify({ module_name: $json.module_name, module_prompt: $json.module_prompt, code_bundle: $json.code_bundle }) } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "4f31ee8d-cc34-45ae-934c-db4dca177fa8",
+      "name": "Agent 06 - Security Auditor (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4224,
+        752
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {},
+      "id": "94a28e23-c123-413d-b48d-ad384c4ad386",
+      "name": "Merge Audit Reports",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2880,
+        464
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let state;\ntry {\n  state = $('Apply Code Patches').last().json;\n} catch (e) {\n  state = $('Prepare Audit Bundle').first().json;\n}\n\nconst merged = $input.all();\nconst qaResp = merged[0]?.json || {};\nconst secResp = merged[1]?.json || {};\n\nconst qaReport = qaResp.choices ? JSON.parse(qaResp.choices[0].message.content) : { approved: false, blocking_issues: [{ severity: 'HIGH', description: 'Falha na leitura do QA Reviewer' }] };\nconst secReport = secResp.choices ? JSON.parse(secResp.choices[0].message.content) : { secure: false, vulnerabilities: [{ severity: 'HIGH', remediation: 'Falha na leitura do Security Auditor' }] };\n\nconst qaTokens = (qaResp.usage?.prompt_tokens || 0) + (qaResp.usage?.completion_tokens || 0);\nconst secTokens = (secResp.usage?.prompt_tokens || 0) + (secResp.usage?.completion_tokens || 0);\nconst auditCost = Number((((qaTokens + secTokens) / 1000000) * 4.0).toFixed(6));\n\nconst blockingQa = (qaReport.blocking_issues || []).filter(i => ['CRITICAL', 'HIGH'].includes(i.severity));\nconst blockingSec = (secReport.vulnerabilities || []).filter(v => ['CRITICAL', 'HIGH'].includes(v.severity));\nconst passed = blockingQa.length === 0 && blockingSec.length === 0;\n\nreturn [{\n  json: {\n    ...state,\n    spent_usd: Number((state.spent_usd + auditCost).toFixed(6)),\n    passed,\n    qa_report: qaReport,\n    security_report: secReport\n  }\n}];"
+      },
+      "id": "a70bbc59-1cad-4155-a5fb-a4136f23565c",
+      "name": "Evaluate Quality Gate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3104,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "qg-passed-cond",
+              "leftValue": "={{ Boolean($json.passed) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5e9fc7fc-6dbc-4102-99f9-99f5cacba398",
+      "name": "Quality Gate Passed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3328,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "max-retry-cond",
+              "leftValue": "={{ Number($json.retry_count) }}",
+              "rightValue": "={{ Number($json.max_retries) }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "527b1ac2-52bc-4d95-9db9-00244cd58831",
+      "name": "Max Retries Reached?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3552,
+        496
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.deepseek.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "deepSeekApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'deepseek-chat', temperature: 0.1, max_tokens: 8192, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.base_prompt + '\\n\\n=== PAPEL ATUAL: DEBUGGER & CODE FIXER SÊNIOR ===\\nAnalise os apontamentos bloqueantes do QA Reviewer e do Security Auditor, identifique a causa-raiz e corrija apenas os arquivos afetados mantendo compatibilidade com os demais módulos e com as regras do Prompt Base. Retorne JSON estrito: { \"root_cause\": \"string\", \"fixes_applied\": [\"string\"], \"patched_files\": [ { \"path\": \"caminho/relativo\", \"content\": \"conteúdo completo atualizado\" } ] }.' }, { role: 'user', content: JSON.stringify({ module_name: $json.module_name, module_prompt: $json.module_prompt, qa_report: $json.qa_report, security_report: $json.security_report, code_bundle: $json.code_bundle }) } ] }) }}",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "id": "b14b4f48-6cfb-4042-a050-2d6573a3a176",
+      "name": "Agent 07 - Debugger & Fixer (DeepSeek)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3776,
+        608
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "const gate = $('Evaluate Quality Gate').first().json;\nconst fixResp = $input.first().json;\nconst fixData = JSON.parse(fixResp.choices[0].message.content);\n\nconst pTokens = fixResp.usage?.prompt_tokens || 0;\nconst cTokens = fixResp.usage?.completion_tokens || 0;\nconst cost = Number((((pTokens / 1000000) * 0.27) + ((cTokens / 1000000) * 1.10)).toFixed(6));\n\nconst filesMap = { ...gate.files_map };\nfor (const pf of (fixData.patched_files || [])) {\n  if (pf.path && typeof pf.content === 'string') {\n    const cleanPath = pf.path.replace(/^(\\.\\.(\\/|\\\\|$))+/, '').replace(/^\\/+/, '');\n    filesMap[cleanPath] = pf.content;\n  }\n}\n\nconst codeBundle = Object.entries(filesMap).map(([path, content]) => ({ path, content }));\n\nreturn [{\n  json: {\n    ...gate,\n    spent_usd: Number((gate.spent_usd + cost).toFixed(6)),\n    retry_count: Number(gate.retry_count || 0) + 1,\n    files_map: filesMap,\n    code_bundle: codeBundle,\n    last_fix_summary: fixData.fixes_applied || []\n  }\n}];"
+      },
+      "id": "0671d868-68c7-4634-a40f-333387a0e162",
+      "name": "Apply Code Patches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        608
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const gate = $input.first().json;\nconst filesMap = { ...gate.files_map };\n\nfilesMap['ESCALATION_REPORT.json'] = JSON.stringify({\n  project_id: gate.project_id,\n  project_slug: gate.project_slug,\n  module_name: gate.module_name,\n  status: 'ESCALATED_TO_HUMAN',\n  retry_count: gate.retry_count,\n  spent_usd: gate.spent_usd,\n  qa_report: gate.qa_report,\n  security_report: gate.security_report,\n  message: 'O ciclo automático atingiu o limite de 3 tentativas de correção. Revise os apontamentos nos relatórios de QA e Segurança incluídos neste ZIP.'\n}, null, 2);\n\nconst projectSlug = (gate.project_slug || gate.requirements?.project_name || 'projeto_revisao').replace(/[^a-zA-Z0-9_-]/g, '_');\nconst moduleSlug = (gate.module_name || 'modulo').replace(/[^a-zA-Z0-9_-]/g, '_');\nconst zipFilename = `${projectSlug}_${moduleSlug}_${gate.project_id.slice(0, 8)}_revisao.zip`;\nconst filePaths = Object.keys(filesMap);\n\nreturn filePaths.map((relPath) => ({\n  json: {\n    project_id: gate.project_id,\n    zip_filename: zipFilename,\n    file_path: relPath\n  },\n  binary: {\n    data: {\n      data: Buffer.from(filesMap[relPath], 'utf8').toString('base64'),\n      mimeType: 'text/plain',\n      fileName: relPath\n    }\n  }\n}));"
+      },
+      "id": "73c96214-41e9-434a-ac0c-d1e2324f4e57",
+      "name": "Build Escalation ZIP Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3776,
+        416
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'gpt-4.1', temperature: 0.2, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.base_prompt + '\\n\\n=== PAPEL ATUAL: DOCUMENTATION ENGINEER SÊNIOR ===\\nGere ou atualize a documentação do módulo aprovado, incluindo obrigatoriamente: README.md, docs/ARCHITECTURE.md, CHANGELOG.md e MANUAL_DE_UTILIZACAO.txt (escrito em linguagem extremamente simples, passo a passo, para uma pessoa leiga). Preserve e consolide qualquer documentação detalhada já gerada no módulo atual sem reduzi-la. Retorne JSON estrito: { \"doc_files\": [ { \"path\": \"README.md\", \"content\": \"...\" }, { \"path\": \"docs/ARCHITECTURE.md\", \"content\": \"...\" }, { \"path\": \"CHANGELOG.md\", \"content\": \"...\" }, { \"path\": \"MANUAL_DE_UTILIZACAO.txt\", \"content\": \"...\" } ] }.' }, { role: 'user', content: JSON.stringify({ module_name: $json.module_name, module_prompt: $json.module_prompt, requirements: $json.requirements, architecture: $json.architecture, code_bundle: $json.code_bundle }) } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "24525191-7c29-4fa6-b52a-9acc638acf42",
+      "name": "Agent 08 - Documentation Engineer (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3552,
+        224
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'gpt-4.1', temperature: 0.1, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $('Evaluate Quality Gate').first().json.base_prompt + '\\n\\n=== PAPEL ATUAL: FINAL VALIDATION & DELIVERY LEAD ===\\nVerifique todos os critérios de aceitação do módulo atual e as regras do Prompt Base, e emita o relatório final de entrega em JSON estrito: { \"delivery_status\": \"APPROVED\", \"executive_summary\": \"string\", \"acceptance_checklist\": [ { \"criterion\": \"string\", \"met\": true, \"evidence\": \"string\" } ], \"known_limitations\": [\"string\"], \"next_steps\": [\"string\"] }.' }, { role: 'user', content: JSON.stringify({ module_name: $('Evaluate Quality Gate').first().json.module_name, module_prompt: $('Evaluate Quality Gate').first().json.module_prompt, requirements: $('Evaluate Quality Gate').first().json.requirements, qa_report: $('Evaluate Quality Gate').first().json.qa_report, security_report: $('Evaluate Quality Gate').first().json.security_report, docs: $json.choices[0].message.content }) } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "c21ff80e-8241-4ac6-aabe-e3eedcddf96a",
+      "name": "Agent 09 - Final Validator (OpenAI)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3776,
+        224
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "const gate = $('Evaluate Quality Gate').first().json;\nconst docResp = $('Agent 08 - Documentation Engineer (OpenAI)').first().json;\nconst valResp = $input.first().json;\n\nconst docs = JSON.parse(docResp.choices[0].message.content);\nconst validation = JSON.parse(valResp.choices[0].message.content);\n\nconst finalFilesMap = { ...gate.files_map };\nfor (const df of (docs.doc_files || [])) {\n  if (df.path && typeof df.content === 'string') {\n    const cleanPath = df.path.replace(/^(\\.\\.(\\/|\\\\|$))+/, '').replace(/^\\/+/, '');\n    finalFilesMap[cleanPath] = df.content;\n  }\n}\n\nfinalFilesMap['DELIVERY_REPORT.json'] = JSON.stringify({\n  project_id: gate.project_id,\n  project_slug: gate.project_slug,\n  module_name: gate.module_name,\n  spent_usd: gate.spent_usd,\n  retry_count: gate.retry_count,\n  qa_report: gate.qa_report,\n  security_report: gate.security_report,\n  validation\n}, null, 2);\n\nfinalFilesMap['PROJECT_STATE.json'] = JSON.stringify({\n  project_slug: gate.project_slug,\n  last_module_completed: gate.module_name,\n  project_id: gate.project_id,\n  stack: gate.architecture?.stack || {},\n  directory_structure: gate.architecture?.directory_structure || [],\n  database_schema: gate.architecture?.database_schema || '',\n  api_contracts: gate.architecture?.api_contracts || {},\n  existing_files: Object.keys(finalFilesMap),\n  executive_summary: validation.executive_summary || ''\n}, null, 2);\n\nconst projectSlug = (gate.project_slug || gate.requirements?.project_name || 'projeto').replace(/[^a-zA-Z0-9_-]/g, '_');\nconst moduleSlug = (gate.module_name || 'modulo').replace(/[^a-zA-Z0-9_-]/g, '_');\nconst zipFilename = `${projectSlug}_${moduleSlug}_${gate.project_id.slice(0, 8)}.zip`;\nconst filePaths = Object.keys(finalFilesMap);\n\nreturn filePaths.map((relPath) => ({\n  json: {\n    project_id: gate.project_id,\n    zip_filename: zipFilename,\n    file_path: relPath\n  },\n  binary: {\n    data: {\n      data: Buffer.from(finalFilesMap[relPath], 'utf8').toString('base64'),\n      mimeType: 'text/plain',\n      fileName: relPath\n    }\n  }\n}));"
+      },
+      "id": "4b129622-92f3-42fb-a590-467b4b367f7a",
+      "name": "Build Binary Files & Manifest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "compress",
+        "fileName": "={{ $json.zip_filename }}"
+      },
+      "id": "be92af9d-6f13-4d61-bf58-99dcd0c8fc25",
+      "name": "Compress Project to ZIP",
+      "type": "n8n-nodes-base.compression",
+      "typeVersion": 1.1,
+      "position": [
+        4224,
+        416
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Disposition",
+                "value": "={{ 'attachment; filename=\"' + ($binary.data.fileName || 'projeto_gerado.zip') + '\"' }}"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/zip"
+              }
+            ]
+          }
+        }
+      },
+      "id": "369c84ae-ce19-4835-a893-24a2ca2ac350",
+      "name": "Download ZIP Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -32,
+        0
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ '/home/node/.n8n-files/' + ($binary.data.fileName || 'projeto_gerado.zip') }}",
+        "options": {}
+      },
+      "id": "51d07b9d-98ef-4ac7-b576-b52d5ccecce7",
+      "name": "Save Backup Copy in n8n",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        4448,
+        592
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "respondWith": "returnBinary",
+        "completionTitle": "Módulo concluído",
+        "completionMessage": "O download do arquivo ZIP foi iniciado",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        4448,
+        400
+      ],
+      "id": "e5c5e0c0-6612-450b-99a5-de8bdb08ee78",
+      "name": "Form"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Form Trigger (Web Download)": {
+      "main": [
+        [
+          {
+            "node": "Prompt Base (Fixo)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Intake (API Download)": {
+      "main": [
+        []
+      ]
+    },
+    "Prompt Base (Fixo)": {
+      "main": [
+        [
+          {
+            "node": "Prompt do Módulo (Entrada Modular)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt do Módulo (Entrada Modular)": {
+      "main": [
+        [
+          {
+            "node": "Init Project & Budget",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Init Project & Budget": {
+      "main": [
+        [
+          {
+            "node": "Agent 01 - Requirements Analyst (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 01 - Requirements Analyst (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Track Requirements & Usage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Track Requirements & Usage": {
+      "main": [
+        [
+          {
+            "node": "Agent 02 - Software Architect (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 02 - Software Architect (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Build Execution DAG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Execution DAG": {
+      "main": [
+        [
+          {
+            "node": "Loop Specialist Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Specialist Tasks": {
+      "main": [
+        [
+          {
+            "node": "Consolidate Modules",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Budget Guardrail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget Guardrail": {
+      "main": [
+        [
+          {
+            "node": "Specialist Prompt Router",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Partial ZIP on Budget Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Specialist Prompt Router": {
+      "main": [
+        [
+          {
+            "node": "Agent 03 - Specialist Developer (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 03 - Specialist Developer (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Collect Task Code & Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect Task Code & Tokens": {
+      "main": [
+        [
+          {
+            "node": "Loop Specialist Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Partial ZIP on Budget Limit": {
+      "main": [
+        [
+          {
+            "node": "Compress Project to ZIP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consolidate Modules": {
+      "main": [
+        [
+          {
+            "node": "Agent 04 - Project Assembler (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 04 - Project Assembler (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Prepare Audit Bundle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Audit Bundle": {
+      "main": [
+        [
+          {
+            "node": "Agent 05 - QA & Code Reviewer (OpenAI)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Agent 06 - Security Auditor (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 05 - QA & Code Reviewer (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Merge Audit Reports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 06 - Security Auditor (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Merge Audit Reports",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Audit Reports": {
+      "main": [
+        [
+          {
+            "node": "Evaluate Quality Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluate Quality Gate": {
+      "main": [
+        [
+          {
+            "node": "Quality Gate Passed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quality Gate Passed?": {
+      "main": [
+        [
+          {
+            "node": "Agent 08 - Documentation Engineer (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Max Retries Reached?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max Retries Reached?": {
+      "main": [
+        [
+          {
+            "node": "Build Escalation ZIP Files",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Agent 07 - Debugger & Fixer (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 07 - Debugger & Fixer (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Apply Code Patches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apply Code Patches": {
+      "main": [
+        [
+          {
+            "node": "Agent 05 - QA & Code Reviewer (OpenAI)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Agent 06 - Security Auditor (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Escalation ZIP Files": {
+      "main": [
+        [
+          {
+            "node": "Compress Project to ZIP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 08 - Documentation Engineer (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Agent 09 - Final Validator (OpenAI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent 09 - Final Validator (OpenAI)": {
+      "main": [
+        [
+          {
+            "node": "Build Binary Files & Manifest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Binary Files & Manifest": {
+      "main": [
+        [
+          {
+            "node": "Compress Project to ZIP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compress Project to ZIP": {
+      "main": [
+        [
+          {
+            "node": "Form",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save Backup Copy in n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Backup Copy in n8n": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodeGroups": [],
+  "tags": []
+}
