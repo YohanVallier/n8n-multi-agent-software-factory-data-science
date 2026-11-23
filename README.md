@@ -1,6 +1,6 @@
 <div align="center">
 
-# Multi-Agent Software Factory (n8n + OpenAI + DeepSeek)
+# n8n-multi-agent-software-factory-data-science (n8n + OpenAI + DeepSeek)
 
 ![n8n](https://img.shields.io/badge/n8n-Workflow_Automation-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4.1-10A37F?style=for-the-badge&logo=openai&logoColor=white)
@@ -20,7 +20,7 @@
 
 ### Overview
 
-An incremental, multi-agent software factory engineered in **n8n** that plans, develops, audits, self-heals, documents, and packages software modules — automatically delivering a downloadable `.zip` archive directly in the browser along with QA/Security audit reports, a non-technical user manual (`MANUAL_DE_UTILIZACAO.txt`), and a state snapshot (`PROJECT_STATE.json`) for multi-module continuity.
+An incremental, n8n-multi-agent-software-factory-data-science engineered in **n8n** that plans, develops, audits, self-heals, documents, and packages software modules — automatically delivering a downloadable `.zip` archive directly in the browser along with QA/Security audit reports, a non-technical user manual (`MANUAL_DE_UTILIZACAO.txt`), and a state snapshot (`PROJECT_STATE.json`) for multi-module continuity.
 
 > **Intellectual Property & Blueprint Notice:** This repository is a **portfolio showcase**. The file `workflow/multi_agent_software_factory_blueprint.json` preserves the real 34-node topology and connections for architectural inspection, but is **intentionally redacted and non-functional** — all proprietary system prompts, specialist personas, JavaScript orchestration code, FinOps pricing formulas, and API payloads have been removed. Reach out if you would like a live walkthrough or licensing information.
 
@@ -33,7 +33,7 @@ An incremental, multi-agent software factory engineered in **n8n** that plans, d
 
 #### Part 2 — Module Consolidation, Parallel QA/Security Audit, Self-Healing & Auto ZIP Delivery
 <p align="center">
-  <img src="assets/workflow_part2_audit_delivery.png" alt="n8n Workflow Part 2 - Project Assembler, Parallel QA and Security Auditor, Debugger Loop, Documentation and ZIP Export" width="100%">
+  <img src="assets/workflow_part2_audit_delivery.png" alt="n8n-multi-agent-software-factory-data-science Workflow Part 2 - Project Assembler, Parallel QA and Security Auditor, Debugger Loop, Documentation and ZIP Export" width="100%">
 </p>
 
 ### Key Engineering & FinOps Highlights
@@ -48,7 +48,7 @@ An incremental, multi-agent software factory engineered in **n8n** that plans, d
 ### System Architecture
 
 <p align="center">
-  <img src="assets/architecture_diagram.png" alt="Multi-Agent Software Factory Architecture Diagram" width="100%">
+  <img src="assets/architecture_diagram.png" alt="n8n-multi-agent-software-factory-data-science-multi-agent-software-factory-data-science Architecture Diagram" width="100%">
 </p>
 
 <details>
@@ -98,7 +98,7 @@ flowchart TD
     X --> ZIP
 
     ZIP --> OUT1[Form Completion - Auto ZIP Download]
-    ZIP --> OUT2[Save Backup Copy in n8n]
+    ZIP --> OUT2[Save Backup Copy in n8n-multi-agent-software-factory-data-science]
 ```
 
 </details>
@@ -120,7 +120,7 @@ flowchart TD
 ### Repository Structure
 
 ```text
-n8n-multi-agent-software-factory/
+n8n-multi-agent-software-factory-data-science/
 ├── README.md
 ├── LICENSE                                                # All Rights Reserved (Portfolio Showcase)
 ├── .gitignore
@@ -171,7 +171,7 @@ Fábrica de software multiagente construída no **n8n** para planejar, desenvolv
 ### Arquitetura do Sistema
 
 <p align="center">
-  <img src="assets/architecture_diagram.png" alt="Diagrama de Arquitetura da Multi-Agent Software Factory" width="100%">
+  <img src="assets/architecture_diagram.png" alt="Diagrama de Arquitetura da n8n-multi-agent-software-factory-data-science" width="100%">
 </p>
 
 ### Os 9 Agentes e Modelos Utilizados
